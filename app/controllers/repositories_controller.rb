@@ -7,7 +7,8 @@ class RepositoriesController < ApplicationController
     begin
       @resp = Faraday.get "https://api.github.com/search/repositories?q=#{params[:query]}"
       body = JSON.parse(@resp.body)
-      # @resp.success? ? (@venues = body["response"]["venues"]) : (@error = body["meta"]["errorDetail"])
+      binding.pry
+      @resp.success? ? (@repos = body["response"]["venues"]) : (@error = body["meta"]["errorDetail"])
     rescue Faraday::ConnectionFailed
       @error = "Timeout error. Please try again."
     end
