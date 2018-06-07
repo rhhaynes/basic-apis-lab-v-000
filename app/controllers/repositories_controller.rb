@@ -8,7 +8,7 @@ class RepositoriesController < ApplicationController
       @resp = Faraday.get "https://api.github.com/search/repositories?q=#{params[:query]}"
       binding.pry
     rescue Faraday::Timeout
-      @error = ""
+      @error = "Timeout error. Please try again."
     end
     render 'search'
   end
