@@ -8,13 +8,13 @@
 <div>
   <% if @error %>
     <p><%= @error %></p>
-  <% elsif @venues %>
+  <% elsif @info %>
     <ul>
-    <% @venues.each do |venue| %>
+    <% @info.each do |i| %>
       <li>
-        <%= venue["name"] %><br>
-        <%= venue["location"]["address"] %><br>
-        Checkins: <%= venue["stats"]["checkinsCount"] %>
+        <%= i["name"] %><br>
+        <%= i["location"]["address"] %><br>
+        Checkins: <%= i["stats"]["checkinsCount"] %>
       </li>
     <% end %>
     </ul>
