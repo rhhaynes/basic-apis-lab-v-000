@@ -10,8 +10,8 @@
   <% elsif @repo %>
     <ul>
       <li>
-        <%= @repo["name"] %><br>
-        <%= @repo["url"] %><br>
+        <%= @repo["name"] %><br/>
+        <a href="<%= @repo["url"] %>"><%= @repo["url"] %></a><br/>
         <%= @repo["description"] %>
       </li>
     </ul>
