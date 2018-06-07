@@ -5,7 +5,9 @@ class RepositoriesController < ApplicationController
 
   def github_search
     begin
-      @resp = Faraday.get "https://api.github.com/search/repositories?q=#{params[]}"
+      @resp = Faraday.get "https://api.github.com/search/repositories?q=#{params[]}" do |req|
+        req.params[]
+      end
       @resp.success? ? () : (@error)
     rescue Faraday::Timeout
       @error = ""
