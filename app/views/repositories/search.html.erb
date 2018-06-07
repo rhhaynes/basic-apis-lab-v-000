@@ -8,15 +8,13 @@
 <div>
   <% if @error %>
     <p><%= @error %></p>
-  <% elsif @info %>
+  <% elsif @repo %>
     <ul>
-    <% @info.each do |i| %>
       <li>
-        <%= i["name"] %><br>
-        <%= i["location"]["address"] %><br>
-        Checkins: <%= i["stats"]["checkinsCount"] %>
+        <%= @repo["name"] %><br>
+        <%= @repo["url"] %><br>
+        <%= @repo["description"] %>
       </li>
-    <% end %>
     </ul>
   <% end %>
 </div>
